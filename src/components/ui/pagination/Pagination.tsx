@@ -54,11 +54,11 @@ export const Pagination = ({ totalPages }: Props) => {
           </li>
 
           {
-            allPage.map((page) => (
-              <li className="page-item">
+            allPage.map((page, index) => (
+              <li className="page-item"  key={page + "-" + index}>
                 <Link
                   className={`${page === currentPage ? "bg-blue-500 text-white text-sm hover:bg-blue-400" : "text-gray-800 hover:text-gray-800 bg-transparent hover:bg-gray-200"} page-link relative block py-1.5 px-3 border-0 outline-none transition-all duration-300 rounded focus:shadow-none`}
-                  href={createPageUrl(page)} key={page}
+                  href={createPageUrl(page)}
                 >
                   {page}
                 </Link>

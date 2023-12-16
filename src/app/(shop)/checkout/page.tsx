@@ -75,7 +75,7 @@ export default function CheckoutPage() {
 
              <p className="mb-5">
               <span className="text-xs">
-                Al hacer clic en "Colocar orden", aceptas nuestros <a className="underline" href="#">terminos y condiciones</a> 
+                Al hacer clic en &quotColocar orden&quot, aceptas nuestros <a className="underline" href="#">terminos y condiciones</a> 
                 <a href="#"> politica de privacidad</a>
               </span>
              </p>
