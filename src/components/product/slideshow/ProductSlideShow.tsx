@@ -1,19 +1,17 @@
-'use client';
-
-import { useState } from 'react';
-
-import { Swiper as SwiperObject } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, FreeMode, Navigation, Thumbs } from 'swiper/modules';
-
+"use client"
+import { Swiper as SwiperObject } from 'swiper'
+import { Swiper, SwiperSlide } from "swiper/react"
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
-
+import './SlideShow.css';
+import { useState } from "react";
+import { FreeMode, Navigation, Thumbs, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
+
 
 interface Props {
     images: string[];
@@ -36,7 +34,7 @@ export const ProductSlideShow = ({ images, title, className }: Props) => {
                 autoplay={{
                     delay: 2500
                 }}
-                thumbs={{
+                thumbs={{ 
                     swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null
                 }}
                 modules={[FreeMode, Navigation, Thumbs, Autoplay]}
@@ -53,7 +51,7 @@ export const ProductSlideShow = ({ images, title, className }: Props) => {
             </Swiper>
 
             <Swiper
-                onSwiper={setThumbsSwiper}
+                onSwiper={ setThumbsSwiper}
                 spaceBetween={10}
                 slidesPerView={4}
                 freeMode={true}

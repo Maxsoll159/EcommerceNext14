@@ -10,8 +10,8 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
+import './slideshow.css';
 
-//XDD
 
 
 interface Props {
