@@ -2,6 +2,8 @@ import { ProductMobileSlideShow, ProductSlideShow, QuantitySelector, SizeSelecto
 import { titleFont } from "@/config/fonts";
 import { initialData } from "@/seed/seed";
 import { notFound } from "next/navigation";
+import { AddToCard } from "./ui/AddToCard";
+import { currencyFormat } from '../../../../utils/currencyFormat';
 
 interface Props {
   params: {
@@ -31,13 +33,11 @@ export default function ProductPage({ params }: Props) {
 
       <div className="col-span-1 px-5 ">
         <h1 className={`${titleFont.className} antialiased font-bold text-xl`}>{product.title}</h1>
-        <p className="text-lg mb-5">{product.price}</p>
-        {/**Selector de Tallas */}
-        <SizeSelector selectedSize={product.sizes[0]} availableSize={product.sizes} />
-        {/**Selector de Cantidad */}
-        <QuantitySelector quantity={1} />
-        {/**button */}
-        <button className="btn-primary my-5">Agregar al Carrito</button>
+        <p className="text-lg mb-5">{currencyFormat(product.price)}</p>
+
+        <AddToCard product={product} />
+
+
         {/**Description */}
         <h3 className="font-bold text-sm">Descripcion</h3>
         <p className="font-light">{product.description}</p>

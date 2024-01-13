@@ -1,5 +1,6 @@
 "use client"
 import { Product } from "@/interfaces"
+import { currencyFormat } from "@/utils"
 import Image from "next/image"
 import Link from "next/link"
 import { useState } from "react"
@@ -18,7 +19,7 @@ export const ProductGridItems = ({ product }: Props) => {
             <Image src={`/products/${displayImage}`} onMouseOver={()=>setDisplayImage(product.images[1])} onMouseOut={()=>setDisplayImage(product.images[0])} alt={product.title} className="w-full object-cover rounded" width={500} height={500} />
             <div className="p-4 flex flex-col">
                 <Link href={`/product/${product.slug}`} className="hover:text-blue-600">{product.title}</Link>
-                <span className="font-bold">${product.price}</span>
+                <span className="font-bold">{currencyFormat(product.price)}</span>
             </div>
         </div>
     )
