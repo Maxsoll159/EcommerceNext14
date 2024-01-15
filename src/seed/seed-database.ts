@@ -1,21 +1,26 @@
 import { initialData } from "./seed";
 import prisma from "../lib/prisma";
 async function main() {
-
+  await prisma.user.deleteMany();
   await prisma.productImage.deleteMany();
   await prisma.product.deleteMany();
   await prisma.category.deleteMany();
 
 
-  const { categories } = initialData;
+  const { categories, user } = initialData;
   //Categorias
   const categoriData = categories.map((category) => ({
     name: category,
   }));
 
+  await prisma.user.createMany({
+    data: user
+  })
+
   await prisma.category.createMany({
     data: categoriData,
   });
+
 
   const categoriesDB = await prisma.category.findMany();
   console.log(categoriesDB);
@@ -28,6 +33,8 @@ async function main() {
   console.log(categoriesMap);
 
   //Product
+
+
   initialData.products.forEach(async (product) => {
     const { type, images, ...rest } = product;
     const dbProduct = await prisma.product.create({
